@@ -6,7 +6,6 @@ on:
   push:
     branches:
     - master
-    - crdnl/*
   pull_request:
     branches: 
     - master
@@ -24,13 +23,14 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y git unzip build-essential bison libbison-dev \
         autoconf autotools-dev automake libssl-dev zlibc zlib1g-dev libzzip-dev \
+        libtool bison++ bisonc++ libbison-dev libtidy5 rsync \
         flex libfl-dev yui-compressor closure-compiler optipng jpegoptim libtidy5deb1 \
         node-less sassc sass-spec libhtml-tidy-perl libxml2-utils
     # Retrieve the toolchain from the OpenWRT folks
     - name: Retrieve the Toolchain
       uses: actions/checkout@v2
       with:
-        repository: lindenis-org/lindenis-v536-prebuilt
+        repository: hi35xx/hi3518e-buildroot
         path: toolchain
 
     # Move the toolchain to the proper location
